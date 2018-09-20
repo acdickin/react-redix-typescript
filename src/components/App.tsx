@@ -1,6 +1,8 @@
 import * as React from 'react';
-import UserList from '../containers/UserList'
 
+import AddUser from '../containers/AddUser'
+import UserList from '../containers/UserList'
+import './App.css'
 
 class App extends React.Component {
   public render() {
@@ -8,8 +10,9 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
 
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to UserList</h1>
         </header>
+        <AddUser/>
         <UserList/>
       </div>
     );

@@ -24,6 +24,7 @@ export default class UserList extends React.Component <IProps,{}>{
 
     return(
       <div id='UserList'>
+        <h3>User List</h3>
         {this.renderUsers()}
       </div>
     )
