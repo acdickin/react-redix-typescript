@@ -46,9 +46,9 @@ export function UpdateUser(user:IUser):IUpdateUser{
 }
 // Delete User
 
-export function DeleteUser(user:IUser):IDeleteUser{
+export function DeleteUser(id:number):IDeleteUser{
   return( {
-    payload:{'id':user.id},
+    payload:{'id':id},
     type: ActionTypes.DELETE_USER,
   })
 }

@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 import {  Action, ActionTypes } from '../actions'
 export const UserState:any =
-[
-    {'firstname':'Andrew', id:1, 'lastname':'Cosmic', 'username':'acosmic'},
-    {'firstname':'Krystaal', id:2, 'lastname':'Cosmic', 'username':'kcosmic'},
-    {'firstname':'John', id:3, 'lastname':'Smith', 'username':'jsmith'},
-];
+  [
+    {'firstname':'Andrew', id:0, 'lastname':'Cosmic', 'username':'acosmic'},
+    {'firstname':'Krystaal', id:1, 'lastname':'Cosmic', 'username':'kcosmic'},
+    {'firstname':'John', id:2, 'lastname':'Smith', 'username':'jsmith'},
+  ];
 
 const users=(state:any =UserState, action:Action)=>{
   switch(action.type){
@@ -14,8 +14,10 @@ const users=(state:any =UserState, action:Action)=>{
 
     // case ActionTypes.UPDATE_USER:
     //   return state.map((user)=>user.id === action.payload.id ? {...user}:user)
-    // case ActionTypes.DELETE_USER:
-    //   return state.filter((user)=>user.id !==action.payload.id)
+    case ActionTypes.DELETE_USER:
+      const id=parseInt(""+action.payload.id+"",10)
+      return [...state].filter((user:any,i:number) =>i !==id )
+
     default:
       return state
   }

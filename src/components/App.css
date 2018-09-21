@@ -19,3 +19,7 @@
 #adduser{
   margin: 15px 0;
 }
+.remove{
+  color: red;
+  cursor:pointer;
+}
