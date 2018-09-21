@@ -5,9 +5,9 @@ import IUser from '../models/User'
 // export const DELETE_USER = 'DELETE_USER'
 
 export enum ActionTypes{
-  CREATE_USER = '[users] CREATE_USER',
-  UPDATE_USER = '[users] UPDATE_USER',
-  DELETE_USER = '[users] DELETE_USER',
+  CREATE_USER = 'CREATE_USER',
+  UPDATE_USER = 'UPDATE_USER',
+  DELETE_USER = 'DELETE_USER',
 }
 
 export interface ICreateUser{
@@ -30,14 +30,9 @@ export interface IDeleteUser{
 let nextTodoId=3;
 // Create user
 export function CreateUser(user:IUser):ICreateUser{
-
+const newUser={ 'firstname':user.firstname, 'id':nextTodoId++, 'lastname':user.lastname,'username':user.username }
   return({
-    payload:{
-      firstname:user.firstname,
-      id:nextTodoId++,
-      lastname:user.lastname,
-      username:user.username
-    },
+    payload: newUser,
     type: ActionTypes.CREATE_USER,
 
     })
@@ -53,7 +48,7 @@ export function UpdateUser(user:IUser):IUpdateUser{
 
 export function DeleteUser(user:IUser):IDeleteUser{
   return( {
-    payload:{id:user.id},
+    payload:{'id':user.id},
     type: ActionTypes.DELETE_USER,
   })
 }

@@ -10,15 +10,17 @@ export default class UserList extends React.Component <IProps,{}>{
   }
 
   public renderUsers =()=>{
-
-    const userList =this.props.users.list.map((user:any, i:number)=>{
-      return(
-        <div key={i}>
-          {user.firstname} {user.lastname} : {user.username}
-        </div>
-      )
-    })
-    return userList;
+    const {users}=this.props
+    if (users !== null){
+      const userList =users.map((user:any, i:number)=>{
+        return(
+          <div key={i}>
+            {user.firstname} {user.lastname} : {user.username}
+          </div>
+        )
+      })
+      return userList;
+    }
   }
   public render(){
 

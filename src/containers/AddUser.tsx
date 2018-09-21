@@ -1,13 +1,11 @@
 import { connect } from 'react-redux'
 import { CreateUser } from '../actions'
 import AddUser from '../components/AddUser'
-import IUser from '../models/User'
+// import IUser from '../models/User'
 
-
-const mapDispatchToProps = (dispatch: any) =>{
+const mapDispatchToProps = (dispatch:(user:any)=>void)  =>{
   return{
-    CreateUser:(user:IUser) => dispatch(CreateUser(user)),
-    dispatch
+    CreateUser: (user:any) => dispatch(CreateUser(user))
   }
 }
-export default connect (mapDispatchToProps)(AddUser);
+export default connect (null, mapDispatchToProps)(AddUser);

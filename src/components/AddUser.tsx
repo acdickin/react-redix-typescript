@@ -1,8 +1,7 @@
 import * as React from 'react';
-import IUser from '../models/User'
 
 interface IDispatchProps{
-  CreateUser: (user:IUser)=>void
+  CreateUser:any
 }
 interface IState{
   disabled:boolean,
@@ -34,7 +33,8 @@ class AddUser extends React.Component<IDispatchProps,IState>{
   }
   public AddUser=()=>{
     const {firstname,lastname,username} = this.state
-    this.props.CreateUser({'firstname':firstname,'lastname':lastname,'id':0,'username':username});
+    this.props.CreateUser({'firstname':firstname,'id':0,'lastname':lastname,'username':username});
+    this.setState({firstname:'', lastname:'',username:''})
   }
 
   public render(){
