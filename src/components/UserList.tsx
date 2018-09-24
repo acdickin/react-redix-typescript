@@ -14,7 +14,9 @@ export default class UserList extends React.Component <IProps,IState>{
     update:false,
     userId:0
   }
-
+  public stopUpdate=()=>{
+    this.setState({update:false})
+  }
   public RemoveUser =(e:any)=>{
     const {id} =e.target;
     this.props.DeleteUser(id)
@@ -43,7 +45,7 @@ export default class UserList extends React.Component <IProps,IState>{
       <div id='UserList'>
         <h3>User List</h3>
         {this.renderUsers()}
-        <UpdateUser update={this.state.update} firstname={firstname} lastname={lastname} id={id} username={username} />
+        <UpdateUser update={this.state.update} close={this.stopUpdate} firstname={firstname} lastname={lastname} id={id} username={username} />
       </div>
     )
   }
